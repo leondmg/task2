@@ -1,0 +1,12 @@
+<div class="grid-x grid-padding-x">
+  <div class="medium-6 cell">
+    <h1><%= @article.title %></h1>
+
+    <%= render @article, locals: {article: @article} %>
+    <% if current_user %>
+      <%= link_to "Edit", edit_article_path(@article), :class => 'button primary' %>
+      <%= link_to "Delete", @article, method: :delete, data: { confirm: "Are you sure?" } , :class => 'button alert'%>
+    <% end %>
+    <%= link_to "View Comments", article_comments_path(@article), :class => 'button primary'%>
+  </div>
+</div>

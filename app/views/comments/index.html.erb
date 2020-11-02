@@ -1,0 +1,18 @@
+<h1>Comments </h1>
+<div class="grid-x grid-padding-x">
+  <% @comments.each do |c| %>
+  
+        <div class="medium-6 cell">
+          <div class="card" style="width: 500px;">
+            <dl>
+              <dt>Name</dt>
+              <dd><%= c.name %></dd>
+              <dt>Comment</dt>
+              <dd><%= c.content %></dd>
+            </dl>
+          </div>
+  <% end %>
+
+<%= link_to "Create Comment", new_article_comment_path, :class => 'button primary'%>
+</div>
+</div>

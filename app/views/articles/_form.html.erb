@@ -1,0 +1,21 @@
+<%= form_with(model: article, local: true) do |f| %>
+<div class="grid-x grid-padding-x">
+        <div class="medium-6 cell">
+  <%= render "shared/errors", object: article %>
+  <%= f.label :title %>
+  <%= f.text_field :title, autofocus: true %>
+
+  <%= f.label :content %>
+  <%= f.text_area :content, rows: 25 %>
+
+  <% if !published(article) %>
+  <fieldset class="fieldset">
+    <legend>Publish?</legend>
+    <%= f.check_box :published, :value => true %>
+    </fieldset>
+   <% end %>
+
+  <%= f.submit "Create", :class => 'button primary'%>
+    </div>
+</div>
+<% end %>

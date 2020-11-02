@@ -1,0 +1,10 @@
+<% if current_user %>
+  <p> <%= link_to "Create New Article", new_article_path , :class => 'button success' %> </p>
+<% end %>
+<% @articles.each do |article| %>
+  <div class="card" style="width: 500px;">
+    <h3><%= link_to article.title, article_path(article) %></h3>
+    <h4><%= truncate(article.content, length: 100, separator: ' ') %></h4>
+    <h6><%= article.updated_at%></h6>
+  </div>
+<% end %>
